@@ -6,13 +6,11 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent,
     CardapioComponent,
     OrderComponent
   ],
@@ -25,7 +23,6 @@ import { FooterComponent } from './components/footer/footer.component';
 
   exports: [
     HeaderComponent,
-    FooterComponent,
     CardapioComponent,
     OrderComponent
   ]
