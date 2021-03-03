@@ -6,7 +6,7 @@
         <h6>Informações do Cliente</h6>
         
         <div class="row">
-            <div class=" camp p-1" >
+            <div class="p-1" >
                 <label for="name" class="camp__label">
                     <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
                     placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('nome')">
@@ -15,7 +15,7 @@
             
             <div class="p-1">
                 <label for="phone">
-                    <input formControlName="phone" type="tel" class="form-control form-control-sm " id="phone"
+                    <input mask="(00) 00000-0000" formControlName="phone" type="tel" class="form-control form-control-sm " id="phone"
                     placeholder="Telefone com DDD" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
@@ -73,12 +73,12 @@
                 <input type="radio" name="payment" id="money"><strong>Dinheiro</strong>
                 <input type="radio" name="payment" id="card"><strong>Cartão</strong>
                 
-            </div>
-            
+            </div> 
         </div>
         
         
         <button class="btn btn-dark btn-sm" (click)="onSubmit()">Concluir</button>
+
     </form>
     <div class="text-center">
             <div class="footer">

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { HeaderComponent } from './components/header/header.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
 
   exports: [
