@@ -1,19 +1,22 @@
 .form {
-    border: 1px black solid;
+    border: 2px black solid;
     border-radius: 10px;
     width: 100%;
-    max-width: 370px;
+    max-width: 400px;
     padding: 15px;
     margin: 0 auto;
-    background: #000000; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #e74c3c, #000000); /* Chrome 10-25, Safari 5.1-6 */
+    background: #000000; 
+    background: -webkit-linear-gradient(to right, #e74c3c, #000000); 
     background: linear-gradient(
         to right,
         #e74c3c,
         #000000
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    );
+    margin-bottom: 30px;
 }
 
 .camp__label {
     padding-left: 8px;
 }
+
+
