@@ -1,59 +1,60 @@
-<div class="text-center pt-3">
-
+<div class="text-left pt-3">
+    
+    
     <form [formGroup]="orderForm" class="form pt-4">
-
+        
         <h6>Informações do Cliente</h6>
-
+        
         <div class="row">
             <div class=" camp p-1" >
                 <label for="name" class="camp__label">
                     <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
-                        placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('nome')">
+                    placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
-
+            
             <div class="p-1">
                 <label for="phone">
                     <input formControlName="phone" type="tel" class="form-control form-control-sm " id="phone"
-                        placeholder="Telefone com DDD" [class.is-invalid]="exibeErro('nome')">
+                    placeholder="Telefone com DDD" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
         </div>
-
+        
         <h6>Informações da entrega</h6>
-
+        
         <div class="deliveryInformation row">
             <div class="p-1">
                 <label for="street" class="camp__label">
                     <input formControlName="street" type="text" class="form-control form-control-sm" id="street"
-                        placeholder="Rua"[class.is-invalid]="exibeErro('nome')">
+                    placeholder="Rua"[class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
-
+            
             <div class="p-1">
                 <label for="houseNumber">
                     <input formControlName="houseNumber" type="text" class="form-control form-control-sm"
-                        id="houseNumber" placeholder="Nº" style="max-width: 50px;" [class.is-invalid]="exibeErro('nome')">
+                    id="houseNumber" placeholder="Nº" style="max-width: 50px;" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="p-1">
                 <label for="district" class="camp__label">
                     <input formControlName="district" type="text" class="form-control form-control-sm" id="district"
-                        placeholder="Bairro" [class.is-invalid]="exibeErro('nome')">
+                    placeholder="Bairro" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
-
+            
             <div class="p-1">
                 <label for="complement">
                     <input formControlName="complement" type="text" class="form-control form-control-sm" id="complement"
-                        placeholder="Complemento" [class.is-invalid]="exibeErro('nome')">
+                    placeholder="Complemento" [class.is-invalid]="exibeErro('nome')">
                 </label>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="p-1">
                 <label for="referencePoint" class="camp__label">
@@ -61,22 +62,22 @@
                 </label>
             </div>
         </div>
-
+        
         <h6>Informações do pedido</h6>
-
+        
         <h6>Informações de pagamento</h6>
-
+        
         <div class="row">
             <div class="p-1">
                 <label for="payment" class="camp__label"></label>
                 <input type="radio" name="money" id="money"><strong>Dinheiro</strong>
                 <input type="radio" name="money" id="card"><strong>Cartão</strong>
-
+                
             </div>
-
+            
         </div>
-
-
+        
+        
         <button class="btn btn-dark btn-sm" (click)="onSubmit()">Concluir</button>
     </form>
 </div>
