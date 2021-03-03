@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from '../home/home.component';
 import { OrderComponent } from './order/order.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     HeaderComponent,
     FooterComponent,
     CardapioComponent,
@@ -26,7 +24,6 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
 
   exports: [
-    HomeComponent,
     HeaderComponent,
     FooterComponent,
     CardapioComponent,
