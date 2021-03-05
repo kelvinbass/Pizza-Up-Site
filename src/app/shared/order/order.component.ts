@@ -17,11 +17,11 @@ export class OrderComponent implements OnInit {
 
   orderForm: FormGroup;
 
-  pizzaSize = [{
+  pizzaSize = {
     pequena: 'Pequena',
     media: 'Média',
     grande: 'Grande',
-  }];
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,26 +47,22 @@ export class OrderComponent implements OnInit {
       //   flavors: ['', Validators.required],
       //   pizzaSize: ['', Validators.required],
       //   pizzaType: ['', Validators.required],
-      //   pizzaObservarions: ['']
+      //   pizzaObservartions: ['']
       // }),
 
       pizzaInformation: this.formBuilder.array([
-        this.formBuilder.control(''),
-        // flavors: ['', Validators.required],
-        // pizzaSize: ['', Validators.required],
-        // pizzaType: ['', Validators.required],
-        // pizzaObservarions: ['',],
+        this.formBuilder.control('')
       ]),
     });
   }
 
-  showDisplay = false;
+  showDisplay = true;
 
-  chosed() {
+  chosedPsize() {
     this.showDisplay = !this.showDisplay;
   }
 
-  get pizzaInformation() {   // REVER ISSO AQUI, TA ERRADO!!
+  get pizzaInformation() { 
     return this.orderForm.get('pizzaInformation') as FormArray;
 
 }
