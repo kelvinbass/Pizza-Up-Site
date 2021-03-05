@@ -17,11 +17,7 @@ export class OrderComponent implements OnInit {
 
   orderForm: FormGroup;
 
-  pizzaSize = {
-    pequena: 'Pequena',
-    media: 'Média',
-    grande: 'Grande',
-  };
+  // pizzaSize = ['Pequena', 'Média', 'Grande'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,17 +46,31 @@ export class OrderComponent implements OnInit {
       //   pizzaObservartions: ['']
       // }),
 
+      // pizzaSize: this.builderPizzaSize(),
       pizzaInformation: this.formBuilder.array([
         this.formBuilder.control('')
       ]),
     });
   }
 
-  showDisplay = true;
+  // builderPizzaSize(){
 
-  chosedPsize() {
-    this.showDisplay = !this.showDisplay;
+  //   const values = this.pizzaSize.map(v => new FormControl(false));
+
+  //   return this.formBuilder.array(values);
+  // }
+
+  
+  showDisplay = false;
+
+
+
+  chosedSize(option) {
+    console.log(option);
+    this.showDisplay = option === 'option1' ? false : true;
   }
+  
+
 
   get pizzaInformation() { 
     return this.orderForm.get('pizzaInformation') as FormArray;
