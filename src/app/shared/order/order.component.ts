@@ -30,18 +30,26 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-      street: ['', Validators.required],
-      houseNumber: ['', Validators.required],
-      district: ['', Validators.required],
-      complement: [''],
-      referencePoint: [''],
-      flavors: ['', Validators.required],
-      pizzaSize: ['', Validators.required],
-      pizzaType: ['', Validators.required],
-    }) 
-    
+
+      clientInformation: this.formBuilder.group ({
+        name: ['', Validators.required],
+        phone: ['', Validators.required],
+      }),
+
+      deliveryInformation: this.formBuilder.group ({
+        street: ['', Validators.required],
+        houseNumber: ['', Validators.required],
+        district: ['', Validators.required],
+        complement: [''],
+        referencePoint: [''],
+      }),
+
+      pizzaInformation: this.formBuilder.group ({
+        flavors: ['', Validators.required],
+        pizzaSize: ['', Validators.required],
+        pizzaType: ['', Validators.required],
+      }),
+    }); 
   }
 
   showDisplay = false;
