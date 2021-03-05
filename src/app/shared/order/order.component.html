@@ -4,58 +4,58 @@
     <form [formGroup]="orderForm" class="form pt-4">
 
         <h6>Informações do Cliente</h6>
-        
+
         <div formGroupName="clientInformation">
             <div class="row">
                 <div class="p-1">
                     <label for="name" class="camp__label">
                         <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
-                        placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('clientInformation.name')">
+                            placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('clientInformation.name')">
                     </label>
                 </div>
-                
+
                 <div class="p-1">
                     <label for="phone">
                         <input mask="(00) 00000-0000" formControlName="phone" type="tel"
-                        class="form-control form-control-sm " id="phone" placeholder="Telefone com DDD"
-                        style="max-width: 150px;" [class.is-invalid]="exibeErro('clientInformation.phone')">
+                            class="form-control form-control-sm " id="phone" placeholder="Telefone com DDD"
+                            style="max-width: 150px;" [class.is-invalid]="exibeErro('clientInformation.phone')">
                     </label>
                 </div>
             </div>
         </div>
-            
+
         <h6>Informações da entrega</h6>
 
         <div formGroupName="deliveryInformation">
             <div class="row">
                 <div class="p-1">
                     <label for="street" class="camp__label">
-                        <input formControlName="street" type="text" class="form-control form-control-sm" id="street" placeholder="Rua" 
-                        [class.is-invalid]="exibeErro('deliveryInformation.street')">
+                        <input formControlName="street" type="text" class="form-control form-control-sm" id="street"
+                            placeholder="Rua" [class.is-invalid]="exibeErro('deliveryInformation.street')">
                     </label>
                 </div>
-                
-            <div class="p-1">
-                <label for="houseNumber">
-                    <input formControlName="houseNumber" type="text" class="form-control form-control-sm"
-                    id="houseNumber" placeholder="Nº" style="max-width: 80px;"
-                    [class.is-invalid]="exibeErro('deliveryInformation.houseNumber')">
-                </label>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="p-1">
-                <label for="district" class="camp__label">
-                    <input formControlName="district" type="text" class="form-control form-control-sm" id="district"
-                    placeholder="Bairro" [class.is-invalid]="exibeErro('deliveryInformation.district')">
-                </label>
+                <div class="p-1">
+                    <label for="houseNumber">
+                        <input formControlName="houseNumber" type="text" class="form-control form-control-sm"
+                            id="houseNumber" placeholder="Nº" style="max-width: 80px;"
+                            [class.is-invalid]="exibeErro('deliveryInformation.houseNumber')">
+                    </label>
+                </div>
             </div>
-            
-            <div class="p-1">
-                <label for="complement">
-                    <input formControlName="complement" type="text" class="form-control form-control-sm" id="complement"
-                        placeholder="Complemento" style="max-width: 150px">
+
+            <div class="row">
+                <div class="p-1">
+                    <label for="district" class="camp__label">
+                        <input formControlName="district" type="text" class="form-control form-control-sm" id="district"
+                            placeholder="Bairro" [class.is-invalid]="exibeErro('deliveryInformation.district')">
+                    </label>
+                </div>
+
+                <div class="p-1">
+                    <label for="complement">
+                        <input formControlName="complement" type="text" class="form-control form-control-sm"
+                            id="complement" placeholder="Complemento" style="max-width: 150px">
                     </label>
                 </div>
             </div>
@@ -63,16 +63,16 @@
             <div class="row">
                 <div class="p-1">
                     <label for="referencePoint" class="camp__label">
-                        <textarea formControlName="referencePoint" cols="52" class="form-control form-control-sm"
-                        id="referencePoint" placeholder="Ponto de referência"></textarea>
+                        <textarea formControlName="referencePoint" cols="49" class="form-control form-control-sm"
+                            id="referencePoint" placeholder="Ponto de referência"></textarea>
                     </label>
                 </div>
             </div>
         </div>
-            
+
         <h6>Informações do pedido</h6>
 
-        <div class="row" formGroupName="pizzaInformation">
+        <!-- <div class="row" formArrayName="pizzaInformation">
             <div class="p-1">
                 <label for="flavors" class="camp__label">
                     <select formControlName="flavors" name="flavors" class="form-control form-control-sm"
@@ -85,8 +85,7 @@
                     </select>
                 </label>
 
-
-                <label (change)="chosed()" *ngFor=" let sizeChoice of pizzaSize" for="pizzaSize" class="camp__label">
+                <label *ngFor=" let sizeChoice of pizzaSize" for="pizzaSize" class="camp__label">
                     <select formControlName="pizzaSize" name="pizzaSize" class="form-control form-control-sm"
                         [class.is-invalid]="exibeErro('pizzaInformation.pizzaSize')">
                         <option selected disabled value="">Tamanho</option>
@@ -96,22 +95,79 @@
                     </select>
                 </label>
 
-                <div *ngIf="showDisplay; then pizzaTypeBlock"></div>
-                <ng-template #pizzaTypeBlock>
-                    <label for="pizzaType" class="camp__label">
-                        <select formControlName="pizzaType" name="pizzaType" class="form-control form-control-sm"
-                            [class.is-invalid]="exibeErro('pizzaInformation.pizzaType')">
-                            <option selected disabled value="">Tipo</option>
-                            <option value="completa">Completa</option>
-                            <option value="metade">Metade</option>
-                        </select>
-                    </label>
-                </ng-template>
+                <label for="pizzaType" class="camp__label">
+                    <select formControlName="pizzaType" name="pizzaType" class="form-control form-control-sm"
+                        [class.is-invalid]="exibeErro('pizzaInformation.pizzaType')">
+                        <option selected disabled value="">Tipo</option>
+                        <option value="completa">Completa</option>
+                        <option value="metade">Metade</option>
+                    </select>
+                </label>
+
+
+                <div class="row">
+                    <div class="p-1">
+                        <label for="pizzaObservartions" class="camp__label">
+                            <textarea formControlName="pizzaObservartions" cols="52"
+                                class="form-control form-control-sm" style="margin-left: 10px;" id="pizzaObservartions"
+                                placeholder="Observações, ex: não colocar cebola."></textarea>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="p-1">
+            <div *ngFor="let pizza of pizzaInformation.controls">
+                <div class="row" formArrayName="pizzaInformation">
+                    <div class="p-1">
+                        <label for="flavors" class="camp__label"><strong>Sabores</strong>
+                            <select name="flavors" class="form-control form-control-sm">
+                                <!-- [class.is-invalid]="exibeErro('pizzaInformation.flavors')" -->
+                                <option selected disabled value="">Selecione o sabor</option>
+                                <option value="quatroQueijos">Quatro queijos</option>
+                                <option value="chocolate">Chocolate</option>
+                                <option value="calabresa">Calabresa</option>
+                                <option value="frangoEspecial">Frango especial</option>
+                            </select>
+                        </label>
+
+
+                        <label for="pizzaSize" class="camp__label"><strong>Tamanho</strong>
+                            <select name="pizzaSize" class="form-control form-control-sm">
+                                <!-- [class.is-invalid]="exibeErro('pizzaInformation.pizzaSize')" -->
+                                <option selected disabled value="">Tamanho</option>
+                                <option value="pequena">Pequena</option>
+                                <option value="média">Média</option>
+                                <option value="grande">Grande</option>
+                            </select>
+                        </label>
+
+                        <label for="pizzaType" class="camp__label"><strong>Tipo</strong>
+                            <select name="pizzaType" class="form-control form-control-sm">
+                                <!-- [class.is-invalid]="exibeErro('pizzaInformation.pizzaType')" -->
+                                <option selected disabled value="">Tipo</option>
+                                <option value="completa">Completa</option>
+                                <option value="metade">Metade</option>
+                            </select>
+                        </label>
+
+                        <div class="row">
+                            <div class="p-1">
+                                <label for="pizzaObservartions" class="camp__label">
+                                    <textarea cols="53" class="form-control form-control-sm" style="margin-left: 10px;"
+                                        id="pizzaObservartions"
+                                        placeholder="Observações, ex: não colocar cebola."></textarea>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-
-        <button (click)="addPizza()" class="btn btn-dark btn-sm">Adicionar Pizza</button>
+        <button (click)="addNewPizza()" class="btn btn-dark btn-sm">Adicionar Pizza</button>
 
         <h6>Informações de pagamento</h6>
 
