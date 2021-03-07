@@ -72,116 +72,68 @@
 
         <h6>Informações do pedido</h6>
 
-        <!-- <div class="row" formArrayName="pizzaInformation">
-            <div class="p-1">
-                <label for="flavors" class="camp__label">
-                    <select formControlName="flavors" name="flavors" class="form-control form-control-sm"
-                        [class.is-invalid]="exibeErro('pizzaInformation.flavors')">
-                        <option selected disabled value="">Selecione o sabor</option>
-                        <option value="quatroQueijos">Quatro queijos</option>
-                        <option value="chocolate">Chocolate</option>
-                        <option value="calabresa">Calabresa</option>
-                        <option value="frangoEspecial">Frango especial</option>
-                    </select>
-                </label>
-
-                <label *ngFor=" let sizeChoice of pizzaSize" for="pizzaSize" class="camp__label">
-                    <select formControlName="pizzaSize" name="pizzaSize" class="form-control form-control-sm"
-                        [class.is-invalid]="exibeErro('pizzaInformation.pizzaSize')">
-                        <option selected disabled value="">Tamanho</option>
-                        <option value="pequena">{{sizeChoice.pequena}}</option>
-                        <option value="média">{{sizeChoice.media}}</option>
-                        <option value="grande">{{ sizeChoice.grande }}</option>
-                    </select>
-                </label>
-
-                <label for="pizzaType" class="camp__label">
-                    <select formControlName="pizzaType" name="pizzaType" class="form-control form-control-sm"
-                        [class.is-invalid]="exibeErro('pizzaInformation.pizzaType')">
-                        <option selected disabled value="">Tipo</option>
-                        <option value="completa">Completa</option>
-                        <option value="metade">Metade</option>
-                    </select>
-                </label>
-
-
-                <div class="row">
-                    <div class="p-1">
-                        <label for="pizzaObservartions" class="camp__label">
-                            <textarea formControlName="pizzaObservartions" cols="52"
-                                class="form-control form-control-sm" style="margin-left: 10px;" id="pizzaObservartions"
-                                placeholder="Observações, ex: não colocar cebola."></textarea>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
         <div class="p-1">
-            <div *ngFor="let pizza of pizzaInformation.controls">
+            <div *ngFor="let pizza of pizzaInformation.controls;let i=index">
                 <div class="row" formArrayName="pizzaInformation">
-                    <div class="p-1">
-                        <label for="flavors" class="camp__label">
-                            <select name="flavors" class="form-control form-control-sm">
-                                <!-- [class.is-invalid]="exibeErro('pizzaInformation.flavors')" -->
-                                <option selected disabled value="">Selecione o sabor</option>
-                                <option value="quatroQueijos">Quatro queijos</option>
-                                <option value="chocolate">Chocolate</option>
-                                <option value="calabresa">Calabresa</option>
-                                <option value="frangoEspecial">Frango especial</option>
+                    <label for="flavors" class="camp__label">
+                        <select name="flavors" class="form-control form-control-sm">
+                            <option selected disabled value="">Selecione o sabor</option>
+                            <option value="quatroQueijos">Quatro queijos</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="calabresa">Calabresa</option>
+                            <option value="frangoEspecial">Frango especial</option>
+                        </select>
+                    </label>
+
+
+                    <div class="form-check form-check-inline" style="margin-left: 15px;">
+                        <input (change)="chosedSize('option1')" class="form-check-input" type="radio"
+                            name="pizzaSizeOptions" id="option1" value="option1">
+                        <label style="color: white;" class="form-check-label"
+                            for="inlineRadio1"><strong>P</strong></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input (change)="chosedSize('option2')" class="form-check-input" type="radio"
+                            name="pizzaSizeOptions" id="inlineRadio2" value="option2">
+                        <label style="color: white;" class="form-check-label" for="option2"><strong>M</strong></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input (change)="chosedSize('option3')" class="form-check-input" type="radio"
+                            name="pizzaSizeOptions{{i}}" id="inlineRadio3" value="option3">
+                        <label style="color: white;" class="form-check-label" for="option3"><strong>G</strong></label>
+                    </div>
+
+                    <div *ngIf="showDisplay then thenBlock"></div>
+                    <ng-template #thenBlock>
+                        <label for="pizzaType" class="camp__label">
+                            <select name="pizzaType" class="form-control form-control-sm">
+                                <option selected disabled value="">Tipo</option>
+                                <option value="completa">Completa</option>
+                                <option value="metade">Metade</option>
                             </select>
                         </label>
+                    </ng-template>
 
 
-                        <div class="form-check form-check-inline" style="margin-left: 15px;">
-                            <input (change)="chosedSize('option1')" class="form-check-input" type="radio" name="pizzaSizeOptions"
-                                id="option1" value="option1">
-                            <label style="color: white;" class="form-check-label"
-                                for="inlineRadio1"><strong>P</strong></label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input (change)="chosedSize('option2')" class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio2"
-                                value="option2">
-                            <label style="color: white;" class="form-check-label"
-                                for="option2"><strong>M</strong></label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input (change)="chosedSize('option3')" class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio3"
-                                value="option3">
-                            <label style="color: white;" class="form-check-label"
-                                for="option3"><strong>G</strong></label>
-                        </div>
 
-                        <div *ngIf="showDisplay then thenBlock"></div>
-                        <ng-template #thenBlock>
-                            <label for="pizzaType" class="camp__label">
-                                <select name="pizzaType" class="form-control form-control-sm">
-                                    <!-- [class.is-invalid]="exibeErro('pizzaInformation.pizzaType')" -->
-                                    <option selected disabled value="">Tipo</option>
-                                    <option value="completa">Completa</option>
-                                    <option value="metade">Metade</option>
-                                </select>
+                    <div class="row">
+                        <div class="p-1">
+                            <label for="pizzaObservartions" class="camp__label">
+                                <textarea cols="48" class="form-control form-control-sm" style="margin-left: 10px;"
+                                    id="pizzaObservartions"
+                                    placeholder="Informações adicionais, ex: não colocar cebola."></textarea>
                             </label>
-                        </ng-template>
-                    
-                    
-
-                        <div class="row">
-                            <div class="p-1">
-                                <label for="pizzaObservartions" class="camp__label">
-                                    <textarea cols="48" class="form-control form-control-sm" style="margin-left: 10px;"
-                                        id="pizzaObservartions"
-                                        placeholder="Observações, ex: não colocar cebola."></textarea>
-                                </label>
-                            </div>
                         </div>
                     </div>
                 </div>
+                <button style="margin-bottom: 15px;" style="margin-left: 200px;" (click)="removePizza(i)" class="btn btn-dark btn-sm">Remover Pizza</button>
             </div>
         </div>
+        
+        <div class="p-1">
+            <button  style="margin-right: 5px;" (click)="addPizza()" class="btn btn-dark btn-sm">Adicionar Pizza</button>
 
-        <button (click)="addNewPizza()" class="btn btn-dark btn-sm">Adicionar Pizza</button>
+        </div>
 
         <h6>Informações de pagamento</h6>
 

@@ -39,27 +39,11 @@ export class OrderComponent implements OnInit {
         complement: [''],
         referencePoint: [''],
       }),
-      // pizzaInformation: this.formBuilder.group({
-      //   flavors: ['', Validators.required],
-      //   pizzaSize: ['', Validators.required],
-      //   pizzaType: ['', Validators.required],
-      //   pizzaObservartions: ['']
-      // }),
-
-      // pizzaSize: this.builderPizzaSize(),
       pizzaInformation: this.formBuilder.array([
         this.formBuilder.control('')
       ]),
     });
   }
-
-  // builderPizzaSize(){
-
-  //   const values = this.pizzaSize.map(v => new FormControl(false));
-
-  //   return this.formBuilder.array(values);
-  // }
-
   
   showDisplay = false;
 
@@ -71,14 +55,17 @@ export class OrderComponent implements OnInit {
   }
   
 
-
   get pizzaInformation() { 
     return this.orderForm.get('pizzaInformation') as FormArray;
 
 }
 
-  addNewPizza() {
+  addPizza() {
     this.pizzaInformation.push(this.formBuilder.control(''));
+  }
+
+  removePizza(index){
+    this.pizzaInformation.removeAt(index);
   }
 
 
