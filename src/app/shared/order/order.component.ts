@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pizzas } from './order-interface';
 
 @Component({
   selector: 'app-order',
@@ -11,13 +10,130 @@ import { Pizzas } from './order-interface';
 export class OrderComponent implements OnInit {
 
 
-  @Output() valorChange = new EventEmitter();
+  listPizzas = [{
+    id: 1,
+    name: 'Dama da noite I',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  }, {
+    id: 2,
+    name: 'Lombinho',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90, 
+  },  {
+    id: 3,
+    name: 'Pepperoni',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  },  {
+    id: 4,
+    name: 'Carne de sol da nata',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  },  {
+    id: 5,
+    name: 'Quatro queijos',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  },  {
+    id: 6,
+    name: 'Portuguesa',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  },   {
+    id: 7,
+    name: 'Frango com catupiry',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 8,
+    name: 'Frango com cream cheese',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 9,
+    name: 'Frango especial',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90, 
+  },   {
+    id: 10,
+    name: 'Sertaneja',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 11,
+    name: 'Calabresa especial',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 12,
+    name: 'Marguerita',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  },   {
+    id: 13,
+    name: 'Dama da noite II',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 14,
+    name: 'Charge',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  },   {
+    id: 15,
+    name: 'Chocolate com morango',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 16,
+    name: 'chocolate com M&Ms',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 17,
+    name: 'Chocolate especial',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90, 
+  },   {
+    id: 18,
+    name: 'Abacaxi',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  },   {
+    id: 19,
+    name: 'Banana',
+    priceSmall: 24.90,
+    priceMedium: 29.90,
+    priceBig: 39.90,
+  },   {
+    id: 20,
+    name: 'Prestígio',
+    priceSmall: 19.90,
+    priceMedium: 24.90,
+    priceBig: 29.90,
+  }, ]
 
-  pizza: Pizzas;
 
   orderForm: FormGroup;
-
-  // pizzaSize = ['Pequena', 'Média', 'Grande'];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,7 +166,6 @@ export class OrderComponent implements OnInit {
 
 
   chosedSize(option) {
-    console.log(option);
     this.showDisplay = option === 'option1' ? false : true;
   }
   
@@ -61,7 +176,7 @@ export class OrderComponent implements OnInit {
 }
 
   addPizza() {
-    this.pizzaInformation.push(this.formBuilder.control(''));
+    this.pizzaInformation.push(this.formBuilder.control('new FormGroup'));
   }
 
   removePizza(index){

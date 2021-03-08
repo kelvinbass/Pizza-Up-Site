@@ -1,21 +1,19 @@
 .header {
     text-align: center;
     padding: 0.8rem;
-    margin: 0;
-    font-family: cursive;
-    margin-right: 30px;
-    
+    background-color: black;
+
+
     &__title {
         color: white;
         margin: 0;
-        font-size: 3.8rem;
-
+        font-size: 2rem;
     }
 }
 
 .nav-bar-list {
-    color: rgb(255, 255, 255);
-    padding-top: 20px;
+    background-color: rgb(39, 38, 38);
+    border-radius: 8px;
 
     li {
         display: inline;
@@ -24,13 +22,13 @@
     a {
         display: inline-block;
         color: white;
-        padding: 0px 2px;
+        padding: 14px 16px;
         text-decoration: none;
-        margin-right: 30px;
     }
     
     .ativado {
-        background-color:  #ff1900;
-        border-radius: 10px;
+        background-color: #851b1b;
+        border-radius: 8px;
+        margin: 5px;
     }   
 }

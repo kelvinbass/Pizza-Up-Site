@@ -87,19 +87,19 @@
 
 
                     <div class="form-check form-check-inline" style="margin-left: 15px;">
-                        <input (change)="chosedSize('option1')" class="form-check-input" type="radio"
+                        <input (click)="chosedSize('option1')" class="form-check-input" type="radio"
                             name="pizzaSizeOptions" id="option1" value="option1">
                         <label style="color: white;" class="form-check-label"
                             for="inlineRadio1"><strong>P</strong></label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input (change)="chosedSize('option2')" class="form-check-input" type="radio"
+                        <input (click)="chosedSize('option2')" class="form-check-input" type="radio"
                             name="pizzaSizeOptions" id="inlineRadio2" value="option2">
                         <label style="color: white;" class="form-check-label" for="option2"><strong>M</strong></label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input (change)="chosedSize('option3')" class="form-check-input" type="radio"
-                            name="pizzaSizeOptions{{i}}" id="inlineRadio3" value="option3">
+                        <input (click)="chosedSize('option3')" class="form-check-input" type="radio"
+                            name="pizzaSizeOptions" id="inlineRadio3" value="option3">
                         <label style="color: white;" class="form-check-label" for="option3"><strong>G</strong></label>
                     </div>
 
@@ -126,13 +126,12 @@
                         </div>
                     </div>
                 </div>
-                <button style="margin-bottom: 15px;" style="margin-left: 200px;" (click)="removePizza(i)" class="btn btn-dark btn-sm">Remover Pizza</button>
+                <button style="margin-bottom: 15px;" style="margin-left: 219px;" (click)="removePizza(i)" class="btn btn-danger btn-sm">Remover Pizza</button>
             </div>
         </div>
         
         <div class="p-1">
-            <button  style="margin-right: 5px;" (click)="addPizza()" class="btn btn-dark btn-sm">Adicionar Pizza</button>
-
+            <button  style="margin-left: 219px;" (click)="addPizza()" class="btn btn-success btn-sm">Adicionar Pizza</button>
         </div>
 
         <h6>Informações de pagamento</h6>

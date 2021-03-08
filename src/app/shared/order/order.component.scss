@@ -2,17 +2,12 @@
     border: 2px black solid;
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
     padding: 15px;
     margin: 0 auto;
-    background: #000000; 
-    background: -webkit-linear-gradient(to right, #e74c3c, #000000); 
-    background: linear-gradient(
-        to right,
-        #e74c3c,
-        #000000
-    );
     margin-bottom: 30px;
+
+    background: #861b1b;
 }
 
 .camp__label {
@@ -38,5 +33,3 @@ h6 {
     background: linear-gradient(to right, #e74c3c, #000000);
     color: rgb(255, 255, 255);
 }
-
-
