@@ -165,10 +165,12 @@ export class OrderComponent implements OnInit {
 
 
 
-  chosedSize(option) {
+  chosedType(option) {
     this.showDisplay = option === 'option1' ? false : true;
   }
   
+
+
 
   get pizzaInformation() { 
     return this.orderForm.get('pizzaInformation') as FormArray;

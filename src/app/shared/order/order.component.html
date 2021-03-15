@@ -1,161 +1,180 @@
 <div class="text-left pt-3">
 
 
-    <form [formGroup]="orderForm" class="form pt-4">
+   <form [formGroup]="orderForm" class="form pt-4">
 
-        <h6>Informações do Cliente</h6>
+      <h6>Informações do Cliente</h6>
 
-        <div formGroupName="clientInformation">
-            <div class="row">
-                <div class="p-1">
-                    <label for="name" class="camp__label">
-                        <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
-                            placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('clientInformation.name')">
-                    </label>
-                </div>
-
-                <div class="p-1">
-                    <label for="phone">
-                        <input mask="(00) 00000-0000" formControlName="phone" type="tel"
-                            class="form-control form-control-sm " id="phone" placeholder="Telefone com DDD"
-                            style="max-width: 150px;" [class.is-invalid]="exibeErro('clientInformation.phone')">
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <h6>Informações da entrega</h6>
-
-        <div formGroupName="deliveryInformation">
-            <div class="row">
-                <div class="p-1">
-                    <label for="street" class="camp__label">
-                        <input formControlName="street" type="text" class="form-control form-control-sm" id="street"
-                            placeholder="Rua" [class.is-invalid]="exibeErro('deliveryInformation.street')">
-                    </label>
-                </div>
-
-                <div class="p-1">
-                    <label for="houseNumber">
-                        <input formControlName="houseNumber" type="text" class="form-control form-control-sm"
-                            id="houseNumber" placeholder="Nº" style="max-width: 80px;"
-                            [class.is-invalid]="exibeErro('deliveryInformation.houseNumber')">
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="p-1">
-                    <label for="district" class="camp__label">
-                        <input formControlName="district" type="text" class="form-control form-control-sm" id="district"
-                            placeholder="Bairro" [class.is-invalid]="exibeErro('deliveryInformation.district')">
-                    </label>
-                </div>
-
-                <div class="p-1">
-                    <label for="complement">
-                        <input formControlName="complement" type="text" class="form-control form-control-sm"
-                            id="complement" placeholder="Complemento" style="max-width: 150px">
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="p-1">
-                    <label for="referencePoint" class="camp__label">
-                        <textarea formControlName="referencePoint" cols="49" class="form-control form-control-sm"
-                            id="referencePoint" placeholder="Ponto de referência"></textarea>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <h6>Informações do pedido</h6>
-
-        <div class="p-1">
-            <div *ngFor="let pizza of pizzaInformation.controls;let i=index">
-                <div class="row" formArrayName="pizzaInformation">
-                    <label for="flavors" class="camp__label">
-                        <select name="flavors" class="form-control form-control-sm">
-                            <option selected disabled value="">Selecione o sabor</option>
-                            <option value="quatroQueijos">Quatro queijos</option>
-                            <option value="chocolate">Chocolate</option>
-                            <option value="calabresa">Calabresa</option>
-                            <option value="frangoEspecial">Frango especial</option>
-                        </select>
-                    </label>
-
-
-                    <div class="form-check form-check-inline" style="margin-left: 15px;">
-                        <input (click)="chosedSize('option1')" class="form-check-input" type="radio"
-                            name="pizzaSizeOptions" id="option1" value="option1">
-                        <label style="color: white;" class="form-check-label"
-                            for="inlineRadio1"><strong>P</strong></label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input (click)="chosedSize('option2')" class="form-check-input" type="radio"
-                            name="pizzaSizeOptions" id="inlineRadio2" value="option2">
-                        <label style="color: white;" class="form-check-label" for="option2"><strong>M</strong></label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input (click)="chosedSize('option3')" class="form-check-input" type="radio"
-                            name="pizzaSizeOptions" id="inlineRadio3" value="option3">
-                        <label style="color: white;" class="form-check-label" for="option3"><strong>G</strong></label>
-                    </div>
-
-                    <div *ngIf="showDisplay then thenBlock"></div>
-                    <ng-template #thenBlock>
-                        <label for="pizzaType" class="camp__label">
-                            <select name="pizzaType" class="form-control form-control-sm">
-                                <option selected disabled value="">Tipo</option>
-                                <option value="completa">Completa</option>
-                                <option value="metade">Metade</option>
-                            </select>
-                        </label>
-                    </ng-template>
-
-
-
-                    <div class="row">
-                        <div class="p-1">
-                            <label for="pizzaObservartions" class="camp__label">
-                                <textarea cols="48" class="form-control form-control-sm" style="margin-left: 10px;"
-                                    id="pizzaObservartions"
-                                    placeholder="Informações adicionais, ex: não colocar cebola."></textarea>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button style="margin-bottom: 15px;" style="margin-left: 219px;" (click)="removePizza(i)" class="btn btn-danger btn-sm">Remover Pizza</button>
-            </div>
-        </div>
-        
-        <div class="p-1">
-            <button  style="margin-left: 219px;" (click)="addPizza()" class="btn btn-success btn-sm">Adicionar Pizza</button>
-        </div>
-
-        <h6>Informações de pagamento</h6>
-
-        <div class="row">
+      <div formGroupName="clientInformation">
+         <div class="row">
             <div class="p-1">
-                <label for="payment" class="camp__label"></label>
-                <input type="radio" name="payment" id="money"><strong>Dinheiro</strong>
-                <input type="radio" name="payment" id="card"><strong>Cartão</strong>
-
+               <label for="name" class="camp__label">
+                  <input formControlName="name" type="text" class="form-control form-control-sm" id="name"
+                     placeholder="Nome e sobrenome" [class.is-invalid]="exibeErro('clientInformation.name')">
+               </label>
             </div>
-        </div>
+
+            <div class="p-1">
+               <label for="phone">
+                  <input mask="(00) 00000-0000" formControlName="phone" type="tel" class="form-control form-control-sm "
+                     id="phone" placeholder="Telefone com DDD" style="max-width: 150px;"
+                     [class.is-invalid]="exibeErro('clientInformation.phone')">
+               </label>
+            </div>
+         </div>
+      </div>
+
+      <h6>Informações da entrega</h6>
+
+      <div formGroupName="deliveryInformation">
+         <div class="row">
+            <div class="p-1">
+               <label for="street" class="camp__label">
+                  <input formControlName="street" type="text" class="form-control form-control-sm" id="street"
+                     placeholder="Rua" [class.is-invalid]="exibeErro('deliveryInformation.street')">
+               </label>
+            </div>
+
+            <div class="p-1">
+               <label for="houseNumber">
+                  <input formControlName="houseNumber" type="text" class="form-control form-control-sm" id="houseNumber"
+                     placeholder="Nº" style="max-width: 80px;"
+                     [class.is-invalid]="exibeErro('deliveryInformation.houseNumber')">
+               </label>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="p-1">
+               <label for="district" class="camp__label">
+                  <input formControlName="district" type="text" class="form-control form-control-sm" id="district"
+                     placeholder="Bairro" [class.is-invalid]="exibeErro('deliveryInformation.district')">
+               </label>
+            </div>
+
+            <div class="p-1">
+               <label for="complement">
+                  <input formControlName="complement" type="text" class="form-control form-control-sm" id="complement"
+                     placeholder="Complemento" style="max-width: 150px">
+               </label>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="p-1">
+               <label for="referencePoint" class="camp__label">
+                  <textarea formControlName="referencePoint" cols="49" class="form-control form-control-sm"
+                     id="referencePoint" placeholder="Ponto de referência"></textarea>
+               </label>
+            </div>
+         </div>
+      </div>
+
+      <h6>Informações do pedido</h6>
+
+      <div class="p-1">
+         <div *ngFor="let pizza of pizzaInformation.controls;let i=index">
+
+            <div class="row">
+               <div class="form-check form-check-inline" style="margin-left: 15px;">
+                  <input (click)="chosedType('option1')" class="form-check-input" type="radio" name="pizzaSizeOptions"
+                     id="option1" value="option1">
+                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>1
+                        sabor</strong></label>
+               </div>
+
+               <div class="form-check form-check-inline" style="margin-left: 15px;">
+                  <input (click)="chosedType('option2')" class="form-check-input" type="radio" name="pizzaSizeOptions"
+                     id="option2" value="option2">
+                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>2
+                        sabores</strong></label>
+               </div>
+            </div>
+
+            <div class="row" formArrayName="pizzaInformation">
+               <label for="flavors" class="camp__label">
+                  <select name="flavors" class="form-control form-control-sm">
+                     <option selected disabled value="">Selecione o sabor</option>
+                     <option *ngFor="let pizza of listPizzas; index as index">{{pizza.name}}</option>
+                  </select>
+               </label>
+
+               <label for="pizzaSize" class="camp__label">
+                  <select name="pizzaSize" class="form-control form-control-sm">
+                     <option>Pequena</option>
+                     <option>Média</option>
+                     <option>Grande</option>
+                  </select>
+               </label>
+
+               <div *ngIf="showDisplay; then thenBlock"></div>
+               <ng-template #thenBlock>
+                  <label for="flavors" class="camp__label">
+                     <select name="flavors" class="form-control form-control-sm">
+                        <option selected disabled value="">Selecione o outro sabor</option>
+                        <option *ngFor="let pizza of listPizzas; index as index">{{pizza.name}}</option>
+                     </select>
+                  </label>
+               </ng-template>
 
 
-        <button class="btn btn-dark btn-sm" (click)="onSubmit()">Concluir</button>
+               <!-- <div class="form-check form-check-inline" style="margin-left: 15px;">
+                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="option1" value="option1">
+                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>P</strong></label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio2"
+                     value="option2">
+                  <label style="color: white;" class="form-check-label" for="option2"><strong>M</strong></label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio3"
+                     value="option3">
+                  <label style="color: white;" class="form-check-label" for="option3"><strong>G</strong></label>
+               </div> -->
 
-    </form>
-    <div class="text-center">
-        <div class="footer">
-            <h6>Pizzaup™ Campina Grande-PB</h6>
-            <img src='./assets/phone.svg' alt="svg de telefone">
-            ou
-            <img class="logo-whatsapp" src='./assets/whatsapp.svg' alt="svg logo whatsapp">
-            <h6>(83) 99850-6482 </h6>
-        </div>
-    </div>
+               <div class="row">
+                  <div class="p-1">
+                     <label for="pizzaObservartions" class="camp__label">
+                        <textarea cols="48" class="form-control form-control-sm" style="margin-left: 10px;"
+                           id="pizzaObservartions"
+                           placeholder="Informações adicionais, ex: não colocar cebola."></textarea>
+                     </label>
+                  </div>
+               </div>
+            </div>
+            <button style="margin-bottom: 15px;" style="margin-left: 219px;" (click)="removePizza(i)"
+               class="btn btn-danger btn-sm">Remover Pizza</button>
+         </div>
+      </div>
+
+      <div class="p-1">
+         <button style="margin-left: 219px;" (click)="addPizza()" class="btn btn-success btn-sm">Adicionar
+            Pizza</button>
+      </div>
+
+      <h6>Informações de pagamento</h6>
+
+      <div class="row">
+         <div class="p-1">
+            <label for="payment" class="camp__label"></label>
+            <input type="radio" name="payment" id="money"><strong>Dinheiro</strong>
+            <input type="radio" name="payment" id="card"><strong>Cartão</strong>
+
+         </div>
+      </div>
+
+
+      <button class="btn btn-dark btn-sm" (click)="onSubmit()">Concluir</button>
+
+   </form>
+   <div class="text-center">
+      <div class="footer">
+         <h6>Pizzaup™ Campina Grande-PB</h6>
+         <img src='./assets/phone.svg' alt="svg de telefone">
+         ou
+         <img class="logo-whatsapp" src='./assets/whatsapp.svg' alt="svg logo whatsapp">
+         <h6>(83) 99850-6482 </h6>
+      </div>
+   </div>
 </div>
