@@ -72,27 +72,28 @@
 
       <h6>Informações do pedido</h6>
 
-      <div class="p-1">
-         <div *ngFor="let pizza of pizzaInformation.controls;let i=index">
+      <div class="p-1" formArrayName="pizzaInformation">
 
-            <div class="row">
-               <div class="form-check form-check-inline" style="margin-left: 15px;">
+         <div *ngFor="let pizza of pizzaInformation.controls; let i=index">
+
+            <div class="row" style="margin-left: 1px; margin-bottom: 5px;">
+               <div class="form-check form-check-inline">
                   <input (click)="chosedType('option1')" class="form-check-input" type="radio" name="pizzaSizeOptions"
                      id="option1" value="option1">
-                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>1
-                        sabor</strong></label>
+                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>
+                     1 sabor</strong></label>
                </div>
 
-               <div class="form-check form-check-inline" style="margin-left: 15px;">
+               <div  class="form-check form-check-inline" style="margin-left: 15px;">
                   <input (click)="chosedType('option2')" class="form-check-input" type="radio" name="pizzaSizeOptions"
                      id="option2" value="option2">
-                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>2
-                        sabores</strong></label>
+                  <label [formControlName]="i" style="color: white;" class="form-check-label" for="inlineRadio1"><strong> 
+                     2 sabores</strong></label>
                </div>
             </div>
 
-            <div class="row" formArrayName="pizzaInformation">
-               <label for="flavors" class="camp__label">
+            <div class="row">
+               <label for="flavors" class="camp__label" style="margin-left: 5px;">
                   <select name="flavors" class="form-control form-control-sm">
                      <option selected disabled value="">Selecione o sabor</option>
                      <option *ngFor="let pizza of listPizzas; index as index">{{pizza.name}}</option>
@@ -101,6 +102,7 @@
 
                <label for="pizzaSize" class="camp__label">
                   <select name="pizzaSize" class="form-control form-control-sm">
+                     <option selected disabled value="">Tamanho</option>
                      <option>Pequena</option>
                      <option>Média</option>
                      <option>Grande</option>
@@ -108,8 +110,9 @@
                </label>
 
                <div *ngIf="showDisplay; then thenBlock"></div>
+
                <ng-template #thenBlock>
-                  <label for="flavors" class="camp__label">
+                  <label for="flavors" class="camp__label" style="margin-left: 5px;">
                      <select name="flavors" class="form-control form-control-sm">
                         <option selected disabled value="">Selecione o outro sabor</option>
                         <option *ngFor="let pizza of listPizzas; index as index">{{pizza.name}}</option>
@@ -117,40 +120,24 @@
                   </label>
                </ng-template>
 
-
-               <!-- <div class="form-check form-check-inline" style="margin-left: 15px;">
-                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="option1" value="option1">
-                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>P</strong></label>
-               </div>
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio2"
-                     value="option2">
-                  <label style="color: white;" class="form-check-label" for="option2"><strong>M</strong></label>
-               </div>
-               <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="pizzaSizeOptions" id="inlineRadio3"
-                     value="option3">
-                  <label style="color: white;" class="form-check-label" for="option3"><strong>G</strong></label>
-               </div> -->
-
-               <div class="row">
-                  <div class="p-1">
-                     <label for="pizzaObservartions" class="camp__label">
-                        <textarea cols="48" class="form-control form-control-sm" style="margin-left: 10px;"
-                           id="pizzaObservartions"
-                           placeholder="Informações adicionais, ex: não colocar cebola."></textarea>
-                     </label>
-                  </div>
-               </div>
             </div>
-            <button style="margin-bottom: 15px;" style="margin-left: 219px;" (click)="removePizza(i)"
-               class="btn btn-danger btn-sm">Remover Pizza</button>
+            
+            <button (click)="removePizza(i)" class="btn btn-danger btn-sm">Remover
+               Pizza</button>
          </div>
       </div>
 
       <div class="p-1">
-         <button style="margin-left: 219px;" (click)="addPizza()" class="btn btn-success btn-sm">Adicionar
+         <button style="margin-left: 106px;" (click)="addPizza()" class="btn btn-success btn-sm">Adicionar
             Pizza</button>
+      </div>
+
+
+      <div class="row" class="p-1">
+         <label for="pizzaObservartions">
+            <textarea cols="48" class="form-control form-control-sm" id="pizzaObservartions"
+               placeholder="Informações adicionais, ex: não colocar cebola."></textarea>
+         </label>
       </div>
 
       <h6>Informações de pagamento</h6>

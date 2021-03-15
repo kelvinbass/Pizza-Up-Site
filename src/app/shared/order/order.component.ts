@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,126 +11,121 @@ export class OrderComponent implements OnInit {
 
 
   listPizzas = [{
-    id: 1,
     name: 'Dama da noite I',
     priceSmall: 29.90,
     priceMedium: 39.90,
     priceBig: 49.90,
   }, {
-    id: 2,
+    name: 'Carne com queijo do reino',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  }, {
+    name: 'Frango com queijo do reino',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  }, {
+    name: 'Calabresa com abacaxi',
+    priceSmall: 29.90,
+    priceMedium: 39.90,
+    priceBig: 49.90,
+  }, {
     name: 'Lombinho',
     priceSmall: 29.90,
     priceMedium: 39.90,
-    priceBig: 49.90, 
-  },  {
-    id: 3,
+    priceBig: 49.90,
+  }, {
     name: 'Pepperoni',
     priceSmall: 29.90,
     priceMedium: 39.90,
     priceBig: 49.90,
-  },  {
-    id: 4,
+  }, {
     name: 'Carne de sol da nata',
     priceSmall: 29.90,
     priceMedium: 39.90,
     priceBig: 49.90,
-  },  {
-    id: 5,
+  }, {
     name: 'Quatro queijos',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  },  {
-    id: 6,
+  }, {
     name: 'Portuguesa',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  },   {
-    id: 7,
+  }, {
     name: 'Frango com catupiry',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 8,
+  }, {
     name: 'Frango com cream cheese',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 9,
+  }, {
     name: 'Frango especial',
     priceSmall: 24.90,
     priceMedium: 29.90,
-    priceBig: 39.90, 
-  },   {
-    id: 10,
+    priceBig: 39.90,
+  }, {
     name: 'Sertaneja',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 11,
+  }, {
     name: 'Calabresa especial',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 12,
+  }, {
     name: 'Marguerita',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  },   {
-    id: 13,
+  }, {
     name: 'Dama da noite II',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 14,
+  }, {
     name: 'Charge',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  },   {
-    id: 15,
+  }, {
     name: 'Chocolate com morango',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 16,
+  }, {
     name: 'chocolate com M&Ms',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 17,
+  }, {
     name: 'Chocolate especial',
     priceSmall: 24.90,
     priceMedium: 29.90,
-    priceBig: 39.90, 
-  },   {
-    id: 18,
+    priceBig: 39.90,
+  }, {
     name: 'Abacaxi',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  },   {
-    id: 19,
+  }, {
     name: 'Banana',
     priceSmall: 24.90,
     priceMedium: 29.90,
     priceBig: 39.90,
-  },   {
-    id: 20,
+  }, {
     name: 'Prestígio',
     priceSmall: 19.90,
     priceMedium: 24.90,
     priceBig: 29.90,
-  }, ]
+  },]
 
 
   orderForm: FormGroup;
@@ -160,7 +155,7 @@ export class OrderComponent implements OnInit {
       ]),
     });
   }
-  
+
   showDisplay = false;
 
 
@@ -168,20 +163,18 @@ export class OrderComponent implements OnInit {
   chosedType(option) {
     this.showDisplay = option === 'option1' ? false : true;
   }
-  
 
-
-
-  get pizzaInformation() { 
+  get pizzaInformation() {
     return this.orderForm.get('pizzaInformation') as FormArray;
 
-}
-
-  addPizza() {
-    this.pizzaInformation.push(this.formBuilder.control('new FormGroup'));
   }
 
-  removePizza(index){
+  addPizza() {
+    this.pizzaInformation.push(this.formBuilder.control(''));
+
+  }
+
+  removePizza(index) {
     this.pizzaInformation.removeAt(index);
   }
 

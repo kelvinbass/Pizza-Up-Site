@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { HeaderComponent } from './components/header/header.component';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 
 @NgModule({
@@ -21,12 +22,13 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
     RouterModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+  
   ],
 
   exports: [
     HeaderComponent,
     CardapioComponent,
     OrderComponent
-  ]
+  ],
 })
 export class SharedModule { }
