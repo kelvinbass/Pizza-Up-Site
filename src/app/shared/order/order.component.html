@@ -74,21 +74,21 @@
 
       <div class="p-1" formArrayName="pizzaInformation">
 
-         <div *ngFor="let pizza of pizzaInformation.controls; let i=index">
+         <div *ngFor="let camp of pizzaInformation.controls; let i=index">
 
-            <div class="row" style="margin-left: 1px; margin-bottom: 5px;">
+            <div  [formGroupName]="i"  class="row" style="margin-left: 1px; margin-bottom: 5px;">
                <div class="form-check form-check-inline">
-                  <input (click)="chosedType('option1')" class="form-check-input" type="radio" name="pizzaSizeOptions"
-                     id="option1" value="option1">
+                  <input formControlName="radioOption" (click)="chosedType('option1', i)" class="form-check-input"
+                     type="radio" name="pizzaSizeOptions" id="option1" value="option1{i}}">
                   <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>
-                     1 sabor</strong></label>
+                        1 sabor</strong></label>
                </div>
 
-               <div  class="form-check form-check-inline" style="margin-left: 15px;">
-                  <input (click)="chosedType('option2')" class="form-check-input" type="radio" name="pizzaSizeOptions"
-                     id="option2" value="option2">
-                  <label [formControlName]="i" style="color: white;" class="form-check-label" for="inlineRadio1"><strong> 
-                     2 sabores</strong></label>
+               <div class="form-check form-check-inline" style="margin-left: 15px;">
+                  <input (click)="chosedType('option2', i)" class="form-check-input" type="radio"
+                     name="pizzaSizeOptions" id="option2" value="option2{{i}}">
+                  <label style="color: white;" class="form-check-label" for="inlineRadio1"><strong>
+                        2 sabores</strong></label>
                </div>
             </div>
 
@@ -109,7 +109,7 @@
                   </select>
                </label>
 
-               <div *ngIf="showDisplay; then thenBlock"></div>
+               <div *ngIf="showDisplays[i]; then thenBlock"></div>
 
                <ng-template #thenBlock>
                   <label for="flavors" class="camp__label" style="margin-left: 5px;">
@@ -121,7 +121,7 @@
                </ng-template>
 
             </div>
-            
+
             <button (click)="removePizza(i)" class="btn btn-danger btn-sm">Remover
                Pizza</button>
          </div>

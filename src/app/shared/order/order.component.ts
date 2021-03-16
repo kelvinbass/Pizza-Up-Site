@@ -127,6 +127,8 @@ export class OrderComponent implements OnInit {
     priceBig: 29.90,
   },]
 
+  listSizes= [0];
+  showDisplays = [false];
 
   orderForm: FormGroup;
 
@@ -156,12 +158,10 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  showDisplay = false;
 
-
-
-  chosedType(option) {
-    this.showDisplay = option === 'option1' ? false : true;
+  chosedType(option, index) {
+    this.showDisplays[index] = option === 'option1'  ? false : true;
+    this.listSizes[index] = option
   }
 
   get pizzaInformation() {
@@ -170,7 +170,7 @@ export class OrderComponent implements OnInit {
   }
 
   addPizza() {
-    this.pizzaInformation.push(this.formBuilder.control(''));
+    this.pizzaInformation.push(this.formBuilder.control('new formGroup'));
 
   }
 
